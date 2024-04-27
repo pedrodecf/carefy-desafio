@@ -1,0 +1,11 @@
+{
+    "name": "pedrodecf/carefy-desafio",
+    "type": "project",
+    "authors": [
+        {
+            "name": "pedrodecf",
+            "email": "pedro012014@gmail.com"
+        }
+    ],
+    "require": {}
+}
