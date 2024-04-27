@@ -4,6 +4,8 @@ require_once __DIR__ . '/vendor/autoload.php';
 require_once __DIR__ . '/controllers/AniversariosController.php';
 require_once __DIR__ . '/utils/formatarData.php';
 require_once __DIR__ . '/utils/calcularIdade.php';
+require_once __DIR__ . '/utils/formatarDataComAno.php';
+require_once __DIR__ . '/utils/calcularTempoDeTrabalho.php';
 
 ?>
 
@@ -42,11 +44,76 @@ require_once __DIR__ . '/utils/calcularIdade.php';
 
         <article class="container">
             <header>
-                <h2>Aniversariante(s) do dia 💼</h2>
-                <span>Aniversariantes celebrando mais um ano de <b>empresa!</b></span>
+                <h2>Aniversários de Trabalho 💼</h2>
+                <span>Data que começou na carefy e anos de trabalho</span>
             </header>
-            <p class="sem-aniversariante">Ninguém fazendo aniversário hoje! ❌🥳</p>
-            </div>
+            <?php foreach ($employees as $employee) : ?>
+                <?php if ($employee['data_de_saida'] === null) : ?>
+                    <section class="aniversariante-container">
+                        <section class="aniversariante-info">
+                            <p><?php echo htmlspecialchars($employee['nome']); ?></p>
+                            <span><?php echo formatarDataComAno($employee['data_de_entrada']); ?></span>
+                        </section>
+                        <span class="data-de-nascimento"><?php echo calcularTempoDeTrabalho($employee['data_de_entrada']); ?></span>
+                    </section>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        </article>
+
+        <article class="container">
+            <header>
+                <h2>Aniversariante(s) do dia 🎂</h2>
+                <span>Idade atual e data de nascimento</span>
+            </header>
+            <?php
+            $currentDate = date('d/m');
+            $aniversarianteEncontrado = false;
+            foreach ($employees as $employee) :
+                $dataNascimento = DateTime::createFromFormat('d/m/Y', $employee['data_de_nascimento']);
+                $dataNascimentoFormatada = $dataNascimento->format('d/m');
+                if ($dataNascimentoFormatada === $currentDate) :
+                    $aniversarianteEncontrado = true;
+            ?>
+                    <section class="aniversariante-container">
+                        <section class="aniversariante-info">
+                            <p><?php echo htmlspecialchars($employee['nome']); ?></p>
+                            <span>Fazendo <?php echo calcularIdade($employee['data_de_nascimento']); ?> anos</span>
+                        </section>
+                        <span class="data-de-nascimento"><?php echo htmlspecialchars($employee['data_de_nascimento']); ?></span>
+                    </section>
+                <?php endif; ?>
+            <?php endforeach; ?>
+            <?php if (!$aniversarianteEncontrado) : ?>
+                <p class="sem-aniversariante">Ninguém está fazendo aniversário hoje! ❌🥳</p>
+            <?php endif; ?>
+        </article>
+
+        <article class="container">
+            <header>
+                <h2>Aniversariante(s) do dia 💼</h2>
+                <span>Anos de trabalho atual e data que começou na carefy</span>
+            </header>
+            <?php
+            $currentDate = date('d/m');
+            $aniversarianteEncontrado = false;
+            foreach ($employees as $employee) :
+                $dataEntrada = DateTime::createFromFormat('d/m/Y', $employee['data_de_entrada']);
+                $dataEntradaFormatada = $dataEntrada->format('d/m');
+                if ($dataEntradaFormatada === $currentDate) :
+                    $aniversarianteEncontrado = true;
+            ?>
+                    <section class="aniversariante-container">
+                        <section class="aniversariante-info">
+                            <p><?php echo htmlspecialchars($employee['nome']); ?></p>
+                            <span>Completando <?php echo calcularTempoDeTrabalho($employee['data_de_entrada']); ?> de carefy</span>
+                        </section>
+                        <span class="data-de-nascimento"><?php echo htmlspecialchars($employee['data_de_entrada']); ?></span>
+                    </section>
+                <?php endif; ?>
+            <?php endforeach; ?>
+            <?php if (!$aniversarianteEncontrado) : ?>
+                <p class="sem-aniversariante">Ninguém está fazendo aniversário de trabalho hoje! ❌🥳</p>
+            <?php endif; ?>
         </article>
     </main>
 </body>
