@@ -3,9 +3,8 @@
 require_once __DIR__ . '/vendor/autoload.php';
 require_once __DIR__ . '/controllers/AniversariosController.php';
 require_once __DIR__ . '/utils/formatarData.php';
-require_once __DIR__ . '/utils/calcularIdade.php';
 require_once __DIR__ . '/utils/formatarDataComAno.php';
-require_once __DIR__ . '/utils/calcularTempoDeTrabalho.php';
+require_once __DIR__ . '/utils/calcularAnos.php';
 
 ?>
 
@@ -36,7 +35,7 @@ require_once __DIR__ . '/utils/calcularTempoDeTrabalho.php';
                             <p><?php echo htmlspecialchars($employee['nome']); ?></p>
                             <span><?php echo formatarData($employee['data_de_nascimento']); ?></span>
                         </section>
-                        <span class="data-de-nascimento"><?php echo calcularIdade($employee['data_de_nascimento']); ?> anos</span>
+                        <span class="data-de-nascimento"><?php echo calcularAnos($employee['data_de_nascimento']); ?></span>
                     </section>
                 <?php endif; ?>
             <?php endforeach; ?>
@@ -54,7 +53,7 @@ require_once __DIR__ . '/utils/calcularTempoDeTrabalho.php';
                             <p><?php echo htmlspecialchars($employee['nome']); ?></p>
                             <span><?php echo formatarDataComAno($employee['data_de_entrada']); ?></span>
                         </section>
-                        <span class="data-de-nascimento"><?php echo calcularTempoDeTrabalho($employee['data_de_entrada']); ?></span>
+                        <span class="data-de-nascimento"><?php echo calcularAnos($employee['data_de_entrada']); ?></span>
                     </section>
                 <?php endif; ?>
             <?php endforeach; ?>
@@ -77,7 +76,7 @@ require_once __DIR__ . '/utils/calcularTempoDeTrabalho.php';
                     <section class="aniversariante-container">
                         <section class="aniversariante-info">
                             <p><?php echo htmlspecialchars($employee['nome']); ?></p>
-                            <span>Fazendo <?php echo calcularIdade($employee['data_de_nascimento']); ?> anos</span>
+                            <span>Fazendo <?php echo calcularAnos($employee['data_de_nascimento']); ?></span>
                         </section>
                         <span class="data-de-nascimento"><?php echo htmlspecialchars($employee['data_de_nascimento']); ?></span>
                     </section>
@@ -105,7 +104,7 @@ require_once __DIR__ . '/utils/calcularTempoDeTrabalho.php';
                     <section class="aniversariante-container">
                         <section class="aniversariante-info">
                             <p><?php echo htmlspecialchars($employee['nome']); ?></p>
-                            <span>Completando <?php echo calcularTempoDeTrabalho($employee['data_de_entrada']); ?> de carefy</span>
+                            <span>Completando <?php echo calcularAnos($employee['data_de_entrada']); ?> de carefy</span>
                         </section>
                         <span class="data-de-nascimento"><?php echo htmlspecialchars($employee['data_de_entrada']); ?></span>
                     </section>
