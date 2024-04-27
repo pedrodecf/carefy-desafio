@@ -7,5 +7,12 @@
             "email": "pedro012014@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "google/apiclient": "^2.0"
+    },
+    "extra": {
+        "google/apiclient-services": [
+            "Sheets"
+        ]
+    }
 }
