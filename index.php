@@ -27,6 +27,10 @@ require_once __DIR__ . '/utils/calcularAnos.php';
             <header>
                 <h2>Aniversários 🎂</h2>
                 <span>Data do aniversário e idade atual</span>
+                <div class="botoes">
+                    <button class="ordenar-nome">Ordenar por nome</button>
+                    <button class="ordenar-mes">Ordenar por mês</button>
+                </div>
             </header>
             <?php foreach ($employees as $employee) : ?>
                 <?php if ($employee['data_de_saida'] === null) : ?>
@@ -45,6 +49,10 @@ require_once __DIR__ . '/utils/calcularAnos.php';
             <header>
                 <h2>Aniversários de Trabalho 💼</h2>
                 <span>Data que começou na carefy e anos de trabalho</span>
+                <div class="botoes">
+                    <button class="ordenar-nome">Ordenar por nome</button>
+                    <button class="ordenar-mes">Ordenar por mês</button>
+                </div>
             </header>
             <?php foreach ($employees as $employee) : ?>
                 <?php if ($employee['data_de_saida'] === null) : ?>
@@ -115,6 +123,8 @@ require_once __DIR__ . '/utils/calcularAnos.php';
             <?php endif; ?>
         </article>
     </main>
+    <script src="./js/ordernarNome.js"></script>
+    <script src="./js/ordernarMes.js"></script>
 </body>
 
 </html>

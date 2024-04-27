@@ -46,6 +46,9 @@ main {
 
 .container header {
     margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
 }
 
 .container header h2 {
@@ -55,6 +58,25 @@ main {
 .container header span {
     font-size: 0.75rem;
     color: #B0B3B8;;
+}
+
+.botoes {
+    margin-top: 0.5rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.botoes button{
+    border: none;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    border-radius: 8px;
+    font-family: "Poppins", sans-serif;
+    cursor: pointer;
+}
+
+.botoes button:hover {
+    background-color: #B0B3B8;
 }
 
 .aniversariante-container {
