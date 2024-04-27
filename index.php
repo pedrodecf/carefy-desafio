@@ -1,3 +1,12 @@
+<?php
+
+require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/controllers/AniversariosController.php';
+require_once __DIR__ . '/utils/formatarData.php';
+require_once __DIR__ . '/utils/calcularIdade.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -15,16 +24,20 @@
     <main>
         <article class="container">
             <header>
-                <h2>Próximos aniversários 💼</h2>
-                <span>Contribuintes que irão celebrar mais um ano de <b>empresa!</b></span>
+                <h2>Aniversários 🎂</h2>
+                <span>Data do aniversário e idade atual</span>
             </header>
-            <div class="aniversariante-container">
-                <div class="aniversariante-info">
-                    <p>Pedro Henrique</p>
-                    <span>03 de junho</span>
-                </div>
-                <span class="data-de-nascimento">1 ano</span>
-            </div>
+            <?php foreach ($employees as $employee) : ?>
+                <?php if ($employee['data_de_saida'] === null) : ?>
+                    <section class="aniversariante-container">
+                        <section class="aniversariante-info">
+                            <p><?php echo htmlspecialchars($employee['nome']); ?></p>
+                            <span><?php echo formatarData($employee['data_de_nascimento']); ?></span>
+                        </section>
+                        <span class="data-de-nascimento"><?php echo calcularIdade($employee['data_de_nascimento']); ?> anos</span>
+                    </section>
+                <?php endif; ?>
+            <?php endforeach; ?>
         </article>
 
         <article class="container">
