@@ -1,10 +1,10 @@
 <?php
 
-require_once __DIR__ . '/vendor/autoload.php';
-require_once __DIR__ . '/controllers/AniversariosController.php';
-require_once __DIR__ . '/utils/formatarData.php';
-require_once __DIR__ . '/utils/formatarDataComAno.php';
-require_once __DIR__ . '/utils/calcularAnos.php';
+require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../controllers/AniversariosController.php';
+require_once __DIR__ . '/../utils/formatarData.php';
+require_once __DIR__ . '/../utils/formatarDataComAno.php';
+require_once __DIR__ . '/../utils/calcularAnos.php';
 
 ?>
 
@@ -16,7 +16,7 @@ require_once __DIR__ . '/utils/calcularAnos.php';
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="/css/index.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <title>Lista de aniversário colaboradores carefy</title>
 </head>
@@ -123,8 +123,8 @@ require_once __DIR__ . '/utils/calcularAnos.php';
             <?php endif; ?>
         </article>
     </main>
-    <script src="./js/ordernarNome.js"></script>
-    <script src="./js/ordernarMes.js"></script>
+    <script src="/js/ordernarNome.js"></script>
+    <script src="/js/ordernarMes.js"></script>
 </body>
 
 </html>
