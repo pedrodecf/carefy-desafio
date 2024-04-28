@@ -39,9 +39,10 @@
    - Crie uma nova credencial para o seu projeto.
    - Baixe o arquivo de credenciais e renomeie-o para `credentials.json`.
    - Coloque o arquivo `credentials.json` na pasta `config` do projeto.
+     
    
-   > [!NOTE]
-   > **Vídeo tutorial para criar uma credencial:** [Clique aqui para acessar o vídeo](https://youtu.be/KjlUVl4phAo)
+> [!NOTE]
+> Vídeo tutorial para criar uma credencial: [Clique aqui para acessar o vídeo](https://youtu.be/KjlUVl4phAo)
 
 5. **Inicie o Servidor**
 
