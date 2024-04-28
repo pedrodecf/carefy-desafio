@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../api/GoogleSheetsApi.php';
+require_once __DIR__ . '/../services/GoogleSheetsApi.php';
 
 $response = $service->spreadsheets_values->get($spreadsheetId, $range);
 $values = $response->getValues();
