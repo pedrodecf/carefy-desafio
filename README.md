@@ -6,6 +6,7 @@
 
 - Docker instalado na sua máquina.
 - Git instalado para clonar o repositório do projeto.
+- [Composer](https://getcomposer.org/)
 
 ## Configuração
 
