@@ -76,6 +76,7 @@ require_once __DIR__ . '/../utils/calcularAnos.php';
             $currentDate = date('d/m');
             $aniversarianteEncontrado = false;
             foreach ($employees as $employee) :
+                if ($employee['data_de_saida'] === null) :
                 $dataNascimento = DateTime::createFromFormat('d/m/Y', $employee['data_de_nascimento']);
                 $dataNascimentoFormatada = $dataNascimento->format('d/m');
                 if ($dataNascimentoFormatada === $currentDate) :
@@ -88,6 +89,7 @@ require_once __DIR__ . '/../utils/calcularAnos.php';
                         </section>
                         <span class="data-de-nascimento"><?php echo htmlspecialchars($employee['data_de_nascimento']); ?></span>
                     </section>
+                <?php endif; ?>
                 <?php endif; ?>
             <?php endforeach; ?>
             <?php if (!$aniversarianteEncontrado) : ?>
@@ -107,6 +109,7 @@ require_once __DIR__ . '/../utils/calcularAnos.php';
                 $dataEntrada = DateTime::createFromFormat('d/m/Y', $employee['data_de_entrada']);
                 $dataEntradaFormatada = $dataEntrada->format('d/m');
                 if ($dataEntradaFormatada === $currentDate) :
+                    if ($employee['data_de_saida'] === null) :
                     $aniversarianteEncontrado = true;
             ?>
                     <section class="aniversariante-container">
@@ -116,6 +119,7 @@ require_once __DIR__ . '/../utils/calcularAnos.php';
                         </section>
                         <span class="data-de-nascimento"><?php echo htmlspecialchars($employee['data_de_entrada']); ?></span>
                     </section>
+                <?php endif; ?>
                 <?php endif; ?>
             <?php endforeach; ?>
             <?php if (!$aniversarianteEncontrado) : ?>
